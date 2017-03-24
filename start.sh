@@ -1,2 +1,2 @@
 #!/bin/sh
-uwsgi --ini myapp.ini
+uwsgi --ini myapp.ini &
