@@ -1,6 +1,6 @@
 # -*-coding:utf-8-*-
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import numpy as np
 from PNJudge import judge
 
@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Hello World!"
+    result = {
+            "response": "Hello World!"
+            }
+    return jsonify(ResultSet=result)
 
 @app.route('/responce')
 def responce():
