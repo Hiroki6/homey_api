@@ -43,4 +43,4 @@ if __name__ == "__main__":
     argvs = sys.argv
     utterance = argvs[1]
 
-    print get_response(utterance, "attention-models/attention-19.model")
+    print get_response(utterance, "attention-models/attention-24.model")
