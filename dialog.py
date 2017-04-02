@@ -28,6 +28,7 @@ def pn_judge(sentense):
 @app.route('/dialog', methods=['POST'])
 def dialog():
     user_message = request.form['user_message']
+    print user_message
     response = exec_attention.get_response(user_message, "rnn/attention-models/attention-24.model")
     result = {
             "response": response
@@ -35,4 +36,4 @@ def dialog():
     return jsonify(ResultSet=result)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
