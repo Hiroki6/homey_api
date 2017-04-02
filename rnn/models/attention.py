@@ -85,7 +85,7 @@ class Attention(Vocabulary, Chain):
             wid = xp.argmax(F.softmax(self.W(h2)).data[0]).tolist()
             response += self.id2wd[str(wid)]
             loop = 0
-            while (wid != self.wd2id['<eos>']) and (loop <= 30):
+            while (wid != self.wd2id['<eos>']) and (loop <= 15):
                 x_k = self.embedy(Variable(xp.array([wid], dtype=xp.int32), volatile='off'))
                 h = self.H(x_k)
                 ct = self._mk_ct(gh, h.data, volatile='off')
