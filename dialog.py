@@ -25,9 +25,8 @@ def pn_judge(sentense):
     result = "ポジティブ" if value > 0 else "ネガティブ"
     return result
 
-@app.route('/dialog', methods=['POST'])
+@app.route('/dialog/<user_message>', methods=['GET'])
 def dialog():
-    user_message = request.form['user_message']
     print user_message
     response = exec_attention.get_response(user_message, "rnn/attention-models/attention-24.model")
     result = {
