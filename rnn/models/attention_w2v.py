@@ -8,7 +8,7 @@ from chainer import cuda, Function, gradient_check, Variable, \
 from chainer import Link, Chain, ChainList
 import chainer.functions as F
 import chainer.links as L
-from vocabulary.vocabulary import Vocabulary
+from rnn.vocabulary.vocabulary import Vocabulary
 from gensim.models.word2vec import Word2Vec
 
 xp = np
