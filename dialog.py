@@ -26,7 +26,7 @@ def pn_judge(sentense):
     return result
 
 @app.route('/dialog/<user_message>', methods=['GET'])
-def dialog():
+def dialog(user_message):
     print user_message
     response = exec_attention.get_response(user_message, "rnn/attention-models/attention-24.model")
     result = {
