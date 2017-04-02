@@ -22,12 +22,12 @@ def get_response(utterance, model_filepath):
 
     # Train data
     # sns
-    input_path = 'data/sns/utterance_wakati.txt'
-    output_path = 'data/sns/response_wakati.txt'
+    input_path = 'rnn/data/sns/utterance_wakati.txt'
+    output_path = 'rnn/data/sns/response_wakati.txt'
     Vocabulary(input_path, output_path)
     
-    input_path2 = 'data/broken_dialog/utterance_wakati.txt'
-    output_path2 = 'data/broken_dialog/response_wakati.txt'
+    input_path2 = 'rnn/data/broken_dialog/utterance_wakati.txt'
+    output_path2 = 'rnn/data/broken_dialog/response_wakati.txt'
     Vocabulary(input_path2, output_path2)
 
     utterance_wakati = parser.split_into_words(utterance)
@@ -43,4 +43,4 @@ if __name__ == "__main__":
     argvs = sys.argv
     utterance = argvs[1]
 
-    print get_response(utterance, "attention-models/attention-24.model")
+    print get_response(utterance, "rnn/attention-models/attention-24.model")
