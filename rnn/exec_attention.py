@@ -38,11 +38,7 @@ def get_response(utterance, model_filepath):
     serializers.load_npz(model_filepath, model)
     
     response = model.predict(utterance_wakati)
-    #if response is None:
-    #    return "よかったね"
-    #else:
-    #    return response.replace("<eos>", "")
-    return response
+    return response.replace("<eos>", "")
 
 if __name__ == "__main__":
     argvs = sys.argv
