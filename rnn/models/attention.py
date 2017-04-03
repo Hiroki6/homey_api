@@ -71,6 +71,7 @@ class Attention(Vocabulary, Chain):
     def predict(self, jline):
         
         response = ""
+        print jline
         try:
             gh = []
             for i in range(len(jline)):
@@ -91,6 +92,8 @@ class Attention(Vocabulary, Chain):
                 ct = self._mk_ct(gh, h.data, volatile='off')
                 h2 = F.tanh(self.Wc1(ct) + self.Wc2(h))
                 wid = xp.argmax(F.softmax(self.W(h2)).data[0]).tolist()
+                if wid == self.wd2id['<eos>']:
+                    break
                 response += self.id2wd[str(wid)]
                 loop += 1
             response += "\n"

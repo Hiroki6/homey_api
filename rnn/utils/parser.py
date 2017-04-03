@@ -12,8 +12,8 @@ def split_into_words(text):
     node = mecab.parseToNode(text)
     words = []
     while node:
-        text = node.surface
-        words.append(text.decode('utf-8'))
+        parse = node.surface.decode("utf-8")
+        words.append(parse)
         node = node.next
     return words[1:-1]
 

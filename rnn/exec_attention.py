@@ -31,16 +31,18 @@ def get_response(utterance, model_filepath):
     Vocabulary(input_path2, output_path2)
 
     utterance_wakati = parser.split_into_words(utterance)
+    print utterance_wakati
 
     # Model definition
     model = Attention(input_path, output_path, dim_embed)
     serializers.load_npz(model_filepath, model)
     
     response = model.predict(utterance_wakati)
-    if response is None:
-        return "よかったね"
-    else:
-        return response.replace("<eos>", "")
+    #if response is None:
+    #    return "よかったね"
+    #else:
+    #    return response.replace("<eos>", "")
+    return response
 
 if __name__ == "__main__":
     argvs = sys.argv
