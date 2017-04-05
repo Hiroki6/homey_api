@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import numpy as np
 from PNJudge import judge
 from rnn import exec_attention
+from rnn import exex_attention_ver_2
 
 app = Flask(__name__)
 
@@ -29,6 +30,15 @@ def pn_judge(sentense):
 def dialog(user_message):
     print user_message
     response = exec_attention.get_response(user_message, "rnn/attention-models/attention-24.model")
+    result = {
+            "response": response
+            }
+    return jsonify(ResultSet=result)
+
+@app.route('/dialog2/<user_message>', methods=['GET'])
+def dialog(user_message):
+    print user_message
+    response = exec_attention.get_response(user_message, "rnn/attention-models/attention-99.model")
     result = {
             "response": response
             }
