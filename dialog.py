@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import numpy as np
-from PNJudge import judge
+from pn_judge import judge
 from rnn import exec_attention
 from rnn import exex_attention_ver_2
 
